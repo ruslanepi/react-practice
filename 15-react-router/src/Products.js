@@ -1,7 +1,23 @@
-import React from 'react';
+import React from 'react'
+import products from './data'
+import { Link } from 'react-router-dom'
 
 const Products = () => {
-  return <div>Products</div>;
-};
+  return (
+    <section className='section'>
+      <h2>products</h2>
+      <div className='products'>
+        {products.map((product) => {
+          return (
+            <article key={product.id}>
+              <h5>{product.name}</h5>
+              <Link to={`/products/${product.id}`}>more info</Link>
+            </article>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
 
-export default Products;
+export default Products
